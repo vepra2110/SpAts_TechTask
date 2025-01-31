@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+header img {
+    margin-left: 20px;
+}
+
+header {
+    background-color: bisque;
+    box-shadow: 0px 5px 10px rgb(156, 156, 156);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    padding: 10px 20px;
+
+    z-index: 100;
+}
+
+.search {
+    width: max-content;
+    padding: 14px;
+    border-radius: 28px;
+
+    background: #f6f6f6;
+
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    font-size: 16px;
+    color: #333333;
+    margin-left: 14px;
+    width: 350px;
+
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+a {
+    font-weight: 700;
+    text-decoration: none;
+    color:dimgray;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+    margin: 0 0 0 200px;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 15px;
+
+    font-size: 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 10ms;
+}
+
+.nav__links li a:hover {
+    color: rgb(59, 59, 59);
+}
+
+/****************************************************************/
+
+main {
+
+    background-color: rgb(240, 251, 251);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 900px 350px;
+    grid-template-areas: 
+    'intro'
+    'book_display'
+    'author_display';
+}
+
+.intro {
+  height: 100%;
+  margin: 10px 0;
+  padding: 10px 50px;
+  font-size: 30px;
+
+  grid-area: intro;
+}
+
+.intro h1 {
+  text-align: center;
+}
+.intro p {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family:cursive;
+}
+
+.bookDisplay {
+    margin: 20px 50px;
+    padding: 10px;
+    grid-area: book_display;
+    /* border: 1px solid black; */
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 400px);
+    justify-items: center;
+    align-items: center;
+    gap: 2em;
+
+}
+
+.bookCard {
+    width: 325px;
+    height: 100%;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    background-color: beige;
+
+    transform: scale(1);
+    box-shadow: none;
+    overflow: hidden;
+    
+
+    transition: all 0.3s ease;
+  }
+
+  .bookCard:hover {
+      transform: scale(1.03);
+      box-shadow: 2px 2px 12px rgb(189, 189, 189);
+  
+      transition: all 0.3s ease;
+  }
+
+.bookImage {
+    background-color: aqua;
+    height: 180px;
+    overflow: hidden;
+
+    background-size: cover;
+    background-image: url('https://cdn4.vectorstock.com/i/1000x1000/43/48/blue-book-cover-3d-mockup-a-closed-vector-42394348.jpg');
+
+    border-radius: 5px 5px 0 0;
+
+    transform: scale(1);
+    transition: all 0.7s ease;
+}
+
+.imgContainer {
+  height: 180px;
+  overflow: hidden;
+}
+
+.cardText {
+  text-align: center;
+  margin: 5px 7px;
+}
+
+.bookCard:hover .bookImage{
+  transform: scale(1.07);
+  transition: all 0.7s ease-out;
+}
+
+.bookCard-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bookCard-buttons button {
+    border: none;
+    padding: 7px;
+    background-color: bisque;
+    border-radius: 4px;
+
+    transition: background-color 0.3s ease;
+
+
+}
+
+.bookCard-buttons button:hover {
+  background-color: rgb(253, 217, 174);
+  transition: all 0.3s ease;
+}
+
+
+#authors {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.authorDisplay {
+  grid-area: author_display;
+  align-content: center;
+}
+.container {
+    /* border: 1px solid black; */
+    max-width: 1536px; 
+    margin-inline: auto;
+    height: 200px;
+    margin: 10px 50px 0;
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0)
+    );
+  
+    position: relative;
+  
+    overflow: hidden;
+  }
+  
+  @keyframes scrollLeft {
+    from {}
+  
+    to {
+      left: -200px;
+    }
+  }
+  
+  .item {
+    height: 200px;
+    width: 200px;
+    background-color: beige;
+    border-radius: 5px;
+  
+    position: absolute;
+    left: max(calc(200px * 8), 100%);
+  
+    animation-name: scrollLeft; 
+    animation-timing-function: linear;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+  }
+  
+  .item-1 {
+    animation-delay: calc(30s / 8 * (8 - 1) * -1);
+  }
+  .item-2 {
+    animation-delay: calc(30s / 8 * (8 - 2) * -1);
+  }
+  .item-3 {
+    animation-delay: calc(30s / 8 * (8 - 3) * -1);
+  }
+  .item-4 {
+    animation-delay: calc(30s / 8 * (8 - 4) * -1);
+  }
+  .item-5 {
+    animation-delay: calc(30s / 8 * (8 - 5) * -1);
+  }
+  .item-6 {
+    animation-delay: calc(30s / 8 * (8 - 6) * -1);
+  }
+  .item-7 {
+    animation-delay: calc(30s / 8 * (8 - 7) * -1);
+  }
+  .item-8 {
+    animation-delay: calc(30s / 8 * (8 - 8) * -1);
+  }  
+
+
+.authorImage {
+    height: 170px;
+    background-color: aqua;
+    background-size: cover;
+
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2paNURw1DBfUC5w4I3m3EoIo7vHLpWxtXCg&s');
+}
+
+/******************************************************************/
+
+footer {
+    width: 100%;
+    height: 130px;
+    padding: 20px;
+    margin: 20px 0 0 0;
+    background-color: bisque;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px;
+    justify-items: center;
+    align-items: center;
+}
+
+.footer_text {
+  text-align: center;
+  font-size: 20px;
+}
+
+.social_logo_links {
+  justify-self: end;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.social_logo_links img {
+  margin: 3px;
+}
+
+.fb {
+  margin-right: 75px;
+}
+
+.insta {
+  margin-right: 40px;
+}
+
+.yt {
+
+}
